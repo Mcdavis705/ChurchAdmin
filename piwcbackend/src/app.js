@@ -1,5 +1,6 @@
 import errorHandler from "./middlewares/error.middleware.js";
 import authRouter from "./routes/auth.route.js";
+import membersRouter from "./routes/members.route.js";
 
 
 import express from "express";
@@ -40,6 +41,9 @@ app.get("/", (req, res) => {
     version: "1.0.0",
   });
 });
+
+// Members routes
+app.use("/api/members", membersRouter);
 
 export default app;
 
