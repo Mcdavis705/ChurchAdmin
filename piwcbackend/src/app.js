@@ -1,13 +1,14 @@
-import errorHandler from "./middlewares/error.middleware.js";
-import authRouter from "./routes/auth.route.js";
-import membersRouter from "./routes/members.route.js";
-
-
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
+
+import errorHandler from "./middlewares/error.middleware.js";
+
+import authRouter from "./routes/auth.route.js";
+import membersRouter from "./routes/members.route.js";
+import departmentsRouter from "./routes/departments.routes.js";
 
 const app = express();
 
@@ -42,8 +43,9 @@ app.get("/", (req, res) => {
   });
 });
 
-// Members routes
+// routes
 app.use("/api/members", membersRouter);
+app.use("/api/departments", departmentsRouter);
 
 export default app;
 
